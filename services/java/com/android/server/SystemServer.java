@@ -757,7 +757,12 @@ public final class SystemServer {
         // We start this here so that we update our configuration to set watch or television
         // as appropriate.
         mSystemServiceManager.startService(UiModeManagerService.class);
-
+        try{
+        	Slog.i(TAG,"Test Service");
+        	ServiceManager.addService("Test",new TestService(context));
+        }catch(Throwable e){
+        	Slog.e(TAG, "Failure starting TestService Service" ,e);
+        }
         if (!mOnlyCore) {
             Trace.traceBegin(Trace.TRACE_TAG_SYSTEM_SERVER, "UpdatePackagesIfNeeded");
             try {
