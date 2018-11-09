@@ -763,6 +763,13 @@ public final class SystemServer {
         }catch(Throwable e){
         	Slog.e(TAG, "Failure starting TestService Service" ,e);
         }
+        try{
+            Slog.i(TAG,"ShiftChar Service");
+            ServiceManager.addService("Shift",new ShiftCharService(context));
+        }catch(Throwable e){
+            Slog.e(TAG, "Failure starting ShiftCharService Service" ,e);
+        }
+
         if (!mOnlyCore) {
             Trace.traceBegin(Trace.TRACE_TAG_SYSTEM_SERVER, "UpdatePackagesIfNeeded");
             try {
