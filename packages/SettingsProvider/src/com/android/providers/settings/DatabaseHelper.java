@@ -2576,6 +2576,7 @@ class DatabaseHelper extends SQLiteOpenHelper {
                     + " VALUES(?,?);");
 
             // --- Previously in 'system'
+            loadIntegerSetting(stmt,"TOGGLE_EMERGENCY_DIAL",R.integer.def_toggle_emergency_call);
             loadBooleanSetting(stmt, Settings.Global.AIRPLANE_MODE_ON,
                     R.bool.def_airplane_mode_on);
 
